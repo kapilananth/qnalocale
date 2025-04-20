@@ -47,7 +47,7 @@ export default function App() {
     if(!ciUrl)      
         alert("Please input a value")
     else
-      {let threadIdArray = ciUrl.match(/\d+/)   ; 
+      {let threadIdArray = ciUrl.match(/\d{7}/)   ; 
       if(!threadIdArray || threadIdArray[0].length!=7)  
         alert("There seems to be not a 7 digit Thread ID present")
       else
