@@ -6,6 +6,7 @@ import { ToastContainer, toast } from 'react-toastify';
 export default function App() {
 
   const [ciUrl, setCiUrl] = useState("")
+  //const [threadUrl, setThreadUrl] = useState("")
   const [apiResults, setApiResults] = useState([])
 
   const notify = () => toast("Fetching the info, please wait");
@@ -58,6 +59,23 @@ export default function App() {
      
    }
 
+   function handleGetCiLink(e){
+    e.preventDefault()
+    //let threadId = 0;
+    if(!ciUrl)      
+        alert("Please input a value")
+    else
+      {let threadIdArray = ciUrl.match(/\d{7}/)   ; 
+      if(!threadIdArray || threadIdArray[0].length!=7)  
+        alert("There seems to be not a 7 digit Thread ID present")
+      else
+        //alert(threadIdArray[0]);
+        {var url = "https://cxp.azure.com/communityinsider/cases/mycases?tenant=cxpcom&caseid=cxpcom_MicrosoftQnA_" + threadIdArray[0] + "&tab=basic%20info"
+        window.open(url, '_blank').focus();}
+      }
+
+   }
+
   const handleCopyClick = async () => {
     try {
         await window.navigator.clipboard.writeText(apiResults[4]);
@@ -82,7 +100,7 @@ export default function App() {
     <div className="column-left">
     <div className="input-box">
   <form onSubmit={handleSubmitCiLink}>
-      <input value={ciUrl} onChange={e => setCiUrl(e.target.value)} type="text" id="threadUrl" placeholder="Thread ID or CI Link" />
+      <input value={ciUrl} onChange={e => setCiUrl(e.target.value)} type="text" id="threadUrl" placeholder="Thread ID/Link or CI Link" />
 
   <button className="btn-submit"> <p>Submit</p>
   <svg
@@ -113,6 +131,9 @@ theme="dark"
 
     
   </form>
+
+  <button type="button" className="button-openci" onClick={handleGetCiLink}>Open in CI</button>
+  
   </div>
   </div>
 

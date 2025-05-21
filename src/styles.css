@@ -128,6 +128,7 @@ input:hover {
   align-items: center;
   width: 18em;
   color: var(--black-color);
+  margin-top: 8px;
 }
 
 .btn-submit p {
@@ -250,4 +251,48 @@ a:visited,a:link {
 
 a:hover{
   color: var(--link-color);
+}
+
+
+.button-openci {
+  appearance: none;
+  background-color: transparent;
+  border: 2px solid #1A1A1A;
+  border-radius: 15px;
+  box-sizing: border-box;
+  color: #3B3B3B;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: normal;
+  height: 32px;
+  min-width: 0;
+  margin-top: 32px;
+  outline: none;
+  text-align: center;
+  text-decoration: none;
+  transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 200px;
+  will-change: transform;
+}
+
+.button-openci:disabled {
+  pointer-events: none;
+}
+
+.button-openci:hover {
+  color: #fff;
+  background-color: var(--primary-color);
+  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+  transform: translateY(-2px);
+  border: none;
+}
+
+.button-openci:active {
+  box-shadow: none;
+  transform: translateY(0);
 }
